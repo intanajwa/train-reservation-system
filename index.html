@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi Tiket Kereta</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#file-master">File Master</a></li>
+                <li><a href="#file-transaksi">File Transaksi</a></li>
+                <li><a href="#laporan">Laporan</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <!-- Dashboard -->
+            <section id="dashboard">
+                <h1>Dashboard</h1>
+                <div class="stats">
+                    <div>Total Pengguna: <span id="total-users">100</span></div>
+                    <div>Total Pemesanan: <span id="total-bookings">50</span></div>
+                    <div>Pendapatan Hari Ini: <span id="revenue-today">Rp 10.000.000</span></div>
+                </div>
+            </section>
+
+            <!-- File Master -->
+            <section id="file-master">
+                <h1>File Master</h1>
+                <!-- Form Data Pengguna -->
+                <form id="form-user">
+                    <h2>Tambah Pengguna</h2>
+                    <label for="name">Nama:</label>
+                    <input type="text" id="name" placeholder="Masukkan Nama">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="Masukkan Email">
+                    <label for="phone">Telepon:</label>
+                    <input type="tel" id="phone" placeholder="Masukkan Telepon">
+                    <button type="submit">Simpan Pengguna</button>
+                </form>
+
+                <!-- Form Data Stasiun -->
+                <form id="form-station">
+                    <h2>Tambah Stasiun</h2>
+                    <label for="station-name">Nama Stasiun:</label>
+                    <input type="text" id="station-name" placeholder="Masukkan Nama Stasiun">
+                    <label for="location">Lokasi:</label>
+                    <input type="text" id="location" placeholder="Masukkan Lokasi">
+                    <button type="submit">Simpan Stasiun</button>
+                </form>
+
+                <!-- Form Jadwal Kereta -->
+                <form id="form-schedule">
+                    <h2>Tambah Jadwal Kereta</h2>
+                    <label for="train-name">Nama Kereta:</label>
+                    <input type="text" id="train-name" placeholder="Masukkan Nama Kereta">
+                    <label for="departure">Keberangkatan:</label>
+                    <input type="datetime-local" id="departure">
+                    <label for="arrival">Kedatangan:</label>
+                    <input type="datetime-local" id="arrival">
+                    <button type="submit">Simpan Jadwal</button>
+                </form>
+            </section>
+
+            <!-- File Transaksi -->
+            <section id="file-transaksi">
+                <h1>File Transaksi</h1>
+                <!-- Pemesanan Tiket -->
+                <form id="form-booking">
+                    <h2>Pemesanan Tiket</h2>
+                    <label for="user">Nama Pengguna:</label>
+                    <input type="text" id="user" placeholder="Masukkan Nama Pengguna">
+                    <label for="train">Nama Kereta:</label>
+                    <input type="text" id="train" placeholder="Masukkan Nama Kereta">
+                    <label for="date">Tanggal:</label>
+                    <input type="date" id="date">
+                    <button type="submit">Pesan Tiket</button>
+                </form>
+
+                <!-- Pembatalan Tiket -->
+                <form id="form-cancel">
+                    <h2>Pembatalan Tiket</h2>
+                    <label for="booking-id">ID Pemesanan:</label>
+                    <input type="text" id="booking-id" placeholder="Masukkan ID Pemesanan">
+                    <button type="submit">Batalkan</button>
+                </form>
+
+                <!-- Pembayaran Tiket -->
+                <form id="form-payment">
+                    <h2>Pembayaran Tiket</h2>
+                    <label for="booking-id-pay">ID Pemesanan:</label>
+                    <input type="text" id="booking-id-pay" placeholder="Masukkan ID Pemesanan">
+                    <label for="amount">Jumlah:</label>
+                    <input type="number" id="amount" placeholder="Masukkan Jumlah Pembayaran">
+                    <button type="submit">Bayar</button>
+                </form>
+            </section>
+
+            <!-- Laporan -->
+            <section id="laporan">
+                <h1>Laporan</h1>
+                <div>
+                    <button onclick="generateUserReport()">Laporan Pengguna</button>
+                    <button onclick="generateBookingReport()">Laporan Pemesanan</button>
+                    <button onclick="generateRevenueReport()">Laporan Pendapatan</button>
+                </div>
+                <div id="report-output"></div>
+            </section>
+        </main>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
